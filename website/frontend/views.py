@@ -105,7 +105,7 @@ def get_articles(source=None, distance=0):
 
 
 SOURCES = '''nytimes.com cnn.com politico.com washingtonpost.com
-bbc.co.uk'''.split()
+bbc.co.uk haber.sol.org.tr'''.split()
 
 @cache_page(60 * 30)  #30 minute cache
 def browse(request, source=''):
