@@ -23,6 +23,7 @@ PublicationDict = {'www.nytimes.com': 'NYT',
                    'www.politico.com': 'Politico',
                    'www.washingtonpost.com': 'Washington Post',
                    'haber.sol.org.tr': 'soL haber',
+                   'www.zaman.com.tr': 'Zaman',
                    }
 
 ancient = datetime(1901, 1, 1)

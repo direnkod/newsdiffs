@@ -17,6 +17,7 @@
 
 parsers = """
 solhaber.SolHaberParser
+zaman.ZamanParser
 """.split()
 
 parser_dict = {}
