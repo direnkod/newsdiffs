@@ -42,7 +42,7 @@ if False: #django 1.3
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/New_York'
+TIME_ZONE = 'Europe/Istanbul'
 
 DATETIME_FORMAT = 'F j, Y, g:i a'
 
