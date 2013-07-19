@@ -18,6 +18,7 @@
 parsers = """
 solhaber.SolHaberParser
 zaman.ZamanParser
+habervaktim.HaberVaktimParser
 """.split()
 
 parser_dict = {}
