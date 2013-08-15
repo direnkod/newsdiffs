@@ -32,7 +32,6 @@ class SolHaberParser(BaseParser):
         self.date = soup.find('div', attrs={'class': 'node-date'}).getText()
 
         div = soup.find('div', attrs={'class': 'makale-govde'})
-        print div
         if div is None:
             # Hack for video articles
             div = soup.find('div', 'emp-decription')

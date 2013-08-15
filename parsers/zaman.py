@@ -37,7 +37,6 @@ class ZamanParser(BaseParser):
             div = soup.find('div', attrs={'class': 'detayText'})
         else:
             div = soup.find('div', attrs={'class': 'tab-content yazarContent'})
-        print div
         if div is None:
             # Hack for video articles
             div = soup.find('div', 'emp-decription')
