@@ -92,8 +92,6 @@ def get_articles(source=None, distance=0):
         if not rx.match(url):
             print 'REJECTING', url
             continue
-        if 'blogs.nytimes.com' in url: #XXX temporary
-            continue
 
         if len(versions) < 2:
             continue
@@ -104,8 +102,7 @@ def get_articles(source=None, distance=0):
     return articles
 
 
-SOURCES = '''nytimes.com cnn.com politico.com washingtonpost.com
-bbc.co.uk haber.sol.org.tr www.zaman.com.tr www.habervaktim.com'''.split()
+SOURCES = '''haber.sol.org.tr www.zaman.com.tr www.habervaktim.com'''.split()
 
 @cache_page(60 * 30)  #30 minute cache
 def browse(request, source=''):
