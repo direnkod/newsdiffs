@@ -13,7 +13,7 @@ import time
 from django.template import Context, RequestContext, loader
 from django.views.decorators.cache import cache_page
 
-OUT_FORMAT = '%B %d, %Y at %l:%M%P EDT'
+OUT_FORMAT = '%d %B %Y, %H:%M'
 
 SEARCH_ENGINES = """
 http://www.ask.com
@@ -22,6 +22,9 @@ https://www.google
 search.yahoo.com
 http://www.bing.com
 """.split()
+
+import locale
+locale.setlocale(locale.LC_TIME, "tr_TR.UTF-8")
 
 def came_from_search_engine(request):
     return any(x in request.META.get('HTTP_REFERER', '')
