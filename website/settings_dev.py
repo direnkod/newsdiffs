@@ -1,4 +1,5 @@
 # Django settings for newsdiffer project.
+#
 
 import os.path
 
@@ -6,9 +7,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-     ('Eric Price', 'ecprice@mit.edu'),
-     ('Jennifer 8. Lee', 'jenny8lee@gmail.com'),
-     ('Gregory Price', 'price@mit.edu'),
+     ('Ozan Caglayan', 'ozancag@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -55,7 +54,7 @@ MEDIA_URL = ''
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '%p^2v#afb+ew#3en+%r55^gm4av_=e+s7w6a5(#ky92yp*56+l'
+SECRET_KEY = 'n25q0j2ox2(r77e$3fh9bjyiundd)!fl3ediaf9e&#s8ve2#@-'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
