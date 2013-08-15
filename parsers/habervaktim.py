@@ -10,7 +10,7 @@ class HaberVaktimParser(BaseParser):
     end_date = datetime.date.today().isoformat()
     start_date = (datetime.date.today()-datetime.timedelta(days=1)).isoformat()
 
-    feeder_pat   = '^http://www.habervaktim.com/haber/\d+'
+    feeder_pat   = '^http://www.habervaktim.com/(haber|yazar)/\d+'
     feeder_pages = ['http://www.habervaktim.com']
 
     # print feeder_pages
@@ -20,16 +20,20 @@ class HaberVaktimParser(BaseParser):
                              fromEncoding='utf-8')
 
         kose_yazisi = soup.find('div', attrs={'class': 'author_article'})
+        yazi = soup.find("div", attrs={"class": "news_detail"})
 
         if kose_yazisi is not None:
             yazar = soup.find('div', attrs={'class': 'middle_page_title'}).find('h1').getText()
+        elif yazi is None:
+            self.real_article = False
+            return
 
         print 'at the beginning'
         self.meta = soup.findAll('meta')
         if kose_yazisi is not None:
-            elt = soup.find("div", attrs={"class": "author_article"}).find('div', attrs={"class": "title"})
+            elt = kose_yazisi.find('div', attrs={"class": "title"})
         else:
-            elt = soup.find("div", attrs={"class": "news_detail"}).find('div', attrs={"class": "title"})
+            elt = yazi.find('div', attrs={"class": "title"})
         if elt is None:
             self.real_article = False
             return
@@ -45,12 +49,21 @@ class HaberVaktimParser(BaseParser):
             div = soup.find('div', attrs={'id': 'author_article_content'})
         else:
             div = soup.find('div', attrs={'id': 'news_content'})
-        print div
         if div is None:
             # Hack for video articles
             div = soup.find('div', 'emp-decription')
         if div is None:
             self.real_article = False
             return
-        self.body = '\n'+'\n\n'.join([x.getText() for x in div.childGenerator()
+
+        self.body = ''
+        if kose_yazisi is not None:
+            self.body = yazar
+
+        ozet = soup.find('div', attrs={'class': 'short_content'})
+
+        if ozet is not None:
+            self.body = self.body + ozet.getText()
+
+        self.body = self.body + '\n'+'\n\n'.join([x.getText() for x in div.childGenerator()
                                       if isinstance(x, Tag) and x.name == 'p'])
