@@ -64,7 +64,9 @@ def get_last_update(source):
 
 def get_articles(source=None, distance=0):
     articles = []
-    rx = re.compile(r'^https?://(?:[^/]*\.)%s/' % source if source else '')
+    # FIXME: This pattern doesn't work for filtering, change it.
+    #rx = re.compile(r'^https?://(?:[^/]*\.)%s/' % source if source else '')
+    rx = re.compile(r'^https?://%s/' % source if source else '')
 
     pagelength = datetime.timedelta(days=1)
     end_date = datetime.datetime.now() - distance * pagelength
@@ -99,6 +101,7 @@ def get_articles(source=None, distance=0):
 
     for article, versions in article_dict.items():
         url = article.url
+	print "url: %s" % url
         if not rx.match(url):
             print 'REJECTING', url
             continue
