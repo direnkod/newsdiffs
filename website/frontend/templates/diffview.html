@@ -56,24 +56,24 @@ published.  You can browse through many such edits in our <a href=
 </div>
 {% endif %}
 
-    <h2>Comparing: {{title}}</h2>
-    <h3><a href="{{article_url}}">{{article_url}}</a></h3>
+    <h2>Karşılaştırılıyor: {{title}} <a href="{{article_url}}" target="_blank">(Özgün Makale)</a></h2>
+    <br/>
     <ul>
-      <li><del>Pink: Archived {{date1}}</del></li>
-      <li><ins>Green: Archived {{date2}}</ins></li>
+      <li><del>Pembe: {{date1}} tarihinde arşivlendi</del></li>
+      <li><ins>Yeşil: {{date2}} tarihinde arşivlendi</ins></li>
     </ul>
     <p>
       {% if prev %}
-      <a href="{{prev}}"><= Previous revision</a>
+      <a href="{{prev}}"><= Önceki sürüm</a>
       {% else %}
-      No previous revision
+      Eski sürümü yok
       {% endif %} |
-      <a href="{% url 'article_history' article_shorturl %}">All changes</a>
+      <a href="{% url 'article_history' article_shorturl %}">Tüm değişimler</a>
       |
       {% if next %}
-      <a href="{{next}}">Later revision =></a>
+      <a href="{{next}}">Sonraki sürüm =></a>
       {% else %}
-      No later revision
+      Yeni sürümü yok
       {% endif %}
     </p>
 
@@ -92,4 +92,4 @@ Are these changes interesting?   <form action="{% url 'upvote' %}" method=POST>
     </div>
 {% endblock content%}
 
-{% block title %}Diffing: {{title}}{% endblock %}
+{% block title %}Karşılaştırılıyor: {{title}}{% endblock %}

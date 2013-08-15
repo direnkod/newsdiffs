@@ -11,30 +11,27 @@
 src="http://getfile5.posterous.com/getfile/files.posterous.com/jenny8lee/qdqTAGAXu0ju59x5O76uLGVi5h15UDvs92UNmtrJoiUpLvZLmC8E5M02Pl4t/Screen_shot_2012-06-18_at_5.10.png" 
 style="padding:10px; margin-left:25px; margin-top:10px; float:right" width="400"></a>	
 		
-<h1>NewsDiffs |  Tracking Online News Over Time</h1><p>
+<h1>NewsDiffs [tr] |  Çevrimiçi Haberlerin Zamana Göre Takibi</h1><p>
 
-<h2>	NewsDiffs <a href="http://newsdiffs.org/browse">archives changes</a> in  
-articles after publication.<br> Currently, we track
+<h2>	NewsDiffs [tr] yayımdan sonra gerçekleşen değişiklikleri <a href="/browse/">arşivler.</a><br> Şu anda takip ettiğimiz kaynaklar
 {% for source in sources|slice:":-1" %}
 <a href="{% url 'browse' source %}">{{source}}</a>,
 {% endfor %}
-and
+ve
 <a href="{% url 'browse' sources|last %}">{{sources|last}}</a>.</h2> 
 
 <p>
-<p>NewsDiffs, which was born out of the Knight Mozilla MIT hackathon in June 2012, is trying to solve the problem of archiving news in the constantly evolving world of online journalism.
+<p>Haziran 2012 tarihinde gerçekleşen Knight Mozilla MIT hackathon'unda doğan NewsDiffs, sürekli devinim halindeki çevrimiçi gazeteler tarafından yayınlanan haberlerin arşivlenmesini amaçlamaktadır.</p>
 		
-<p>The New York Times recently <a href="https://www.nytimes.com/2012/07/01/opinion/sunday/article-changes-are-shown-in-a-tool-created-by-outsiders.html?_r=1">highlighted NewsDiffs</a> in the public 
-editors column (which had <a href="http://nyti.ms/N0VvMq">previously discussed the difficulties of revisions</a> in the digital age).
- 
+<p>New York Times, <a href="https://www.nytimes.com/2012/07/01/opinion/sunday/article-changes-are-shown-in-a-tool-created-by-outsiders.html?_r=1">NewsDiffs hakkında</a> bir inceleme yazısı yayınlamıştır.</p>
 
-			<p>You can <a href="http://newsdiffs.org/browse/">browse</a> our repository of articles. Or you can take a look at <a href="http://newsdiffs.org/examples/">some of the examples</a> of articles that have changed.
-<p>If you are a developer, you can check out the <a href="https://github.com/ecprice/newsdiffs">Github repository</a>.
+<p>Bu site özgün NewsDiffs projesinin Türkiye uyarlamasıdır.</p>
 
+<p>Makale arşivimize <a href="/browse/">gözatabilir</a> veya bazı değişim örneklerini <a href="/examples/">inceleyebilirsiniz.</a>
 
-			<p>If you want updates, you can <a href="http://newsdiffs.org/subscribe/">subscribe</a> to our newsletter, or you can follow <a href="http://twitter.com/newsdiffs">NewsDiffs</a> on Twitter.
- 
+<p>Yazılıma katkıda bulunmak istiyorsanız <a href="https://github.com/direnkod/newsdiffs" target="_blank">Github depomuza</a> bakabilirsiniz.</p>
 
-<p>	
+<!--
+<p>If you want updates, you can <a href="http://newsdiffs.org/subscribe/">subscribe</a> to our newsletter, or you can follow <a href="http://twitter.com/newsdiffs">NewsDiffs</a> on Twitter.-->
 
 {% endblock %}

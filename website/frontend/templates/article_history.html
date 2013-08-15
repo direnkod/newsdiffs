@@ -1,20 +1,20 @@
 {% extends 'template.html' %}
 
-{% block title %}Article View{% endblock %}
+{% block title %}Makale Görünümü{% endblock %}
 
 {% block content %}
 
 {% include "find_by_uri.html" %}
 
-<h1>{{article.latest_version.title}} ({{article.publication}}), Change Log</h1>
+<h1>{{article.latest_version.title}} ({{article.publication}}), Değişim Günlüğü</h1>
 <h3><a href="{{article.url}}">{{article.url}}</a></h3> 
-<h3>{{article.latest_version.byline}} | First archived on {{article.initial_date}}</h3> 
+<h3>{{article.latest_version.byline}} | İlk olarak {{article.initial_date}} tarihinde arşivlendi</h3> 
 <p>
 <table class="table table-condensed"  style="width:100%">
      <thead><tr>
-	<td>Headline</td>
-	<td>Date/Time EST Archived</td>
-	<td>Diff</td>
+	<td>Başlık</td>
+	<td>Arşivlenme Zamanı</td>
+	<td>Fark</td>
     </tr> </thead>
 
     {% for difflink, version in versions %}
@@ -22,7 +22,7 @@
       <td><a href="{{link}}">{{version.title}}</a></td>
       <td>{{version.date}}</td>
       {% if difflink %}
-      <td><a href="{{difflink}}">(Compare with previous)</a></td>
+      <td><a href="{{difflink}}">(Önceki sürümle karşılaştır)</a></td>
     {% else %}
     <td></td>
     {% endif %}
