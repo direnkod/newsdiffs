@@ -2,13 +2,12 @@
 {% load url from future %}
 
 
-{% block title %}Error{% endblock title%}
+{% block title %}Hata{% endblock title%}
 
 {% block content %}
 
-<h1>Oops, this doesn't look right</h1>
-<p>
-Hm. If you are on this page, something went wrong.
-<p>If you want to tell us what, you can <a href="{% url 'contact' %}">contact us</a>.
-  
+<h1>Bir sorun var gibi</h1>
+<p>Eğer bu sayfayı görüyorsanız bir sorunla karşı karşıyasınız.</p>
+<p>Sorunu bildirmek için bizimle <a href="{% url 'contact' %}">iletişime geçebilirsiniz.</a>.</p>
+ 
 {% endblock content%}

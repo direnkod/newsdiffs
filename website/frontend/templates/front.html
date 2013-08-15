@@ -7,9 +7,9 @@
 
 {% include "find_by_uri.html" %}
 
-<h1>NewsDiffs [tr] |  Çevrimiçi Haberlerin Zamana Göre Takibi</h1><p>
+<h1>HaberFarkları | Çevrimiçi Haber Takibi</h1><p>
 
-<h2>	NewsDiffs [tr] yayımdan sonra gerçekleşen değişiklikleri <a href="/browse/">arşivler.</a><br> Şu anda takip ettiğimiz kaynaklar
+<h2>HaberFarkları, çevrimiçi haber kaynaklarındaki değişimleri takip edip <a href="/browse/">arşivler.</a><br>Şu anda takip ettiğimiz kaynaklar
 {% for source in sources|slice:":-1" %}
 <a href="{% url 'browse' source %}">{{source}}</a>,
 {% endfor %}
