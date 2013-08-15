@@ -31,9 +31,10 @@ DATABASES = {
 # system time zone.
 TIME_ZONE = 'Europe/Istanbul'
 
+DATETIME_FORMAT = 'j F Y, G:i'
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'tr-TR'
 
 SITE_ID = 1
 
