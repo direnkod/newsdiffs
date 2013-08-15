@@ -10,6 +10,7 @@ from django.core.urlresolvers import reverse
 import urllib
 import django.db
 import time
+import locale
 from django.template import Context, RequestContext, loader
 from django.views.decorators.cache import cache_page
 
@@ -23,7 +24,13 @@ search.yahoo.com
 http://www.bing.com
 """.split()
 
-import locale
+# Add each source here
+SOURCES = [
+            "haber.sol.org.tr",
+            "www.zaman.com.tr",
+            "www.habervaktim.com",
+          ]
+
 locale.setlocale(locale.LC_TIME, "tr_TR.UTF-8")
 
 def came_from_search_engine(request):
@@ -103,9 +110,6 @@ def get_articles(source=None, distance=0):
     print 'Queries:', len(django.db.connection.queries), django.db.connection.queries
     articles.sort(key = lambda x: x[-1][0][1].date, reverse=True)
     return articles
-
-
-SOURCES = '''haber.sol.org.tr www.zaman.com.tr www.habervaktim.com'''.split()
 
 @cache_page(60 * 30)  #30 minute cache
 def browse(request, source=''):
