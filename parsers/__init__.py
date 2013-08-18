@@ -20,6 +20,7 @@ solhaber.SolHaberParser
 zaman.ZamanParser
 habervaktim.HaberVaktimParser
 hurriyet.HurriyetParser
+dha.DHAParser
 """.split()
 
 parser_dict = {}

@@ -19,10 +19,11 @@ def strip_prefix(string, prefix):
     return string
 
 PublicationDict = {
-                    'haber.sol.org.tr': 'soL haber',
-                    'www.zaman.com.tr': 'Zaman',
-                    'www.habervaktim.com': 'HaberVaktim',
-                    'www.hurriyet.com.tr': 'Hürriyet',
+                    'haber.sol.org.tr'          : 'soL haber',
+                    'www.zaman.com.tr'          : 'Zaman',
+                    'www.habervaktim.com'       : 'HaberVaktim',
+                    'www.hurriyet.com.tr'       : 'Hürriyet',
+                    'www.dha.com.tr'            : 'DHA',
                    }
 
 ancient = datetime(1901, 1, 1)
