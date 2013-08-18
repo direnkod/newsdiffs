@@ -6,7 +6,7 @@ import datetime
 class HurriyetParser(BaseParser):
     domains = ['www.hurriyet.com.tr']
 
-    feeder_pat   = '^http://www.hurriyet.com.tr/(.*)/[0-9]*\.asp'
+    feeder_pat   = '^http://www.hurriyet.com.tr/(.*)(?<!yazarlar)/[0-9]*\.asp'
     feeder_pages = ['http://www.hurriyet.com.tr']
 
     def _parse(self, html):
