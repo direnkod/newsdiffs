@@ -32,7 +32,7 @@ class HurriyetParser(BaseParser):
             self.byline = info.getText()
 
         for pgraph in soup.find("div", {"id": "DivAdnetHaberDetay"}).find("div",
-                {"class": "txt"}).findAll("p"):
+                {"class": "txt"}).findAll("p", recursive=False):
             for elem in pgraph:
                 try:
                     if elem.name == "br":
