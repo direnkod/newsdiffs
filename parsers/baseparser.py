@@ -153,4 +153,5 @@ class BaseParser(object):
 
             all_urls = all_urls + [url for url in urls if
                                    re.search(cls.feeder_pat, url)]
-        return all_urls
+        # Drop duplicate ones
+        return list(set(all_urls))
