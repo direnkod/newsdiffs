@@ -13,7 +13,12 @@ class DHAParser(BaseParser):
         soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES,
                              fromEncoding='utf-8')
 
-        self.title  = soup.find("div", {"class": "haberbasligi"}).getText()
+        try:
+            self.title  = soup.find("div", {"class": "haberbasligi"}).getText()
+        except:
+            # This happens on sports news redirecting to sporaktif.dha.com.tr
+            return
+
         self.date   = soup.find("span", {"class": "newsdate"}).getText()
         self.body = ""
 
