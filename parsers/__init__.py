@@ -19,6 +19,7 @@ parsers = """
 solhaber.SolHaberParser
 zaman.ZamanParser
 habervaktim.HaberVaktimParser
+hurriyet.HurriyetParser
 """.split()
 
 parser_dict = {}
