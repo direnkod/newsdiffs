@@ -17,6 +17,7 @@ class DHAParser(BaseParser):
             self.title  = soup.find("div", {"class": "haberbasligi"}).getText()
         except:
             # This happens on sports news redirecting to sporaktif.dha.com.tr
+            self.real_article = False
             return
 
         self.date   = soup.find("span", {"class": "newsdate"}).getText()
