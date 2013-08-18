@@ -34,8 +34,6 @@ def grab_url(url, max_depth=5, opener=None):
     retry = False
     try:
         text = opener.open(url, timeout=5).read()
-        if '<title>NY Times Advertisement</title>' in text:
-            retry = True
     except socket.timeout:
         retry = True
     if retry:
