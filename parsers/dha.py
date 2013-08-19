@@ -9,6 +9,8 @@ class DHAParser(BaseParser):
     feeder_pat   = '^http://www.dha.com.tr/.*_[0-9]*\.html'
     feeder_pages = ['http://www.dha.com.tr']
 
+    exclude_pattern = ["-son-dakika-haberi", "-son-dakika-haberleri"]
+
     def _parse(self, html):
         soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES,
                              fromEncoding='utf-8')
