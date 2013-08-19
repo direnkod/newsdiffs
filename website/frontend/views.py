@@ -32,6 +32,7 @@ SOURCES = [
             "www.hurriyet.com.tr",
             "www.dha.com.tr",
             "www.ntvmsnbc.com",
+            "www.bianet.org",
           ]
 
 locale.setlocale(locale.LC_TIME, "tr_TR.UTF-8")
