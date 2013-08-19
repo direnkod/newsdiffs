@@ -1,3 +1,4 @@
+# encoding: utf-8
 import datetime
 import re
 
@@ -25,15 +26,15 @@ http://www.bing.com
 """.split()
 
 # Add each source here
-SOURCES = [
-            "haber.sol.org.tr",
-            "www.zaman.com.tr",
-            "www.habervaktim.com",
-            "www.hurriyet.com.tr",
-            "www.dha.com.tr",
-            "www.ntvmsnbc.com",
-            "www.bianet.org",
-          ]
+SOURCES = {
+            "haber.sol.org.tr"      : "SoL",
+            "www.zaman.com.tr"      : "Zaman",
+            "www.habervaktim.com"   : "Habervaktim",
+            "www.hurriyet.com.tr"   : "Hürriyet",
+            "www.dha.com.tr"        : "DHA",
+            "www.ntvmsnbc.com"      : "NTVMSNBC",
+            "www.bianet.org"        : "Bianet",
+          }
 
 locale.setlocale(locale.LC_TIME, "tr_TR.UTF-8")
 
@@ -120,7 +121,7 @@ def get_articles(source=None, distance=0):
 
 @cache_page(60 * 60)  #60 minute cache
 def browse(request, source=''):
-    if source not in SOURCES + ['']:
+    if source not in SOURCES.keys() + ['']:
         raise Http404
     pagestr=request.REQUEST.get('page', '1')
     try:
@@ -143,7 +144,7 @@ def browse(request, source=''):
 
 @cache_page(60 * 60)  #60 minute cache
 def feed(request, source=''):
-    if source not in SOURCES + ['']:
+    if source not in SOURCES.keys() + ['']:
         raise Http404
     pagestr=request.REQUEST.get('page', '1')
     try:
@@ -357,7 +358,7 @@ def contact(request):
     return render_to_response('contact.html', {})
 
 def front(request):
-    return render_to_response('front.html', {'sources': SOURCES})
+    return render_to_response('front.html', {'sources': SOURCES.keys()})
 
 def subscribe(request):
     return render_to_response('subscribe.html', {})
