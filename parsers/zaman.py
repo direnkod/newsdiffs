@@ -13,21 +13,16 @@ class ZamanParser(BaseParser):
     feeder_pat   = '^http://www.zaman.com.tr/.*\.html$'
     feeder_pages = ['http://www.zaman.com.tr/menuDetail.action?archiveDate=%s&sectionId=3052' % start_date]
 
-    # print feeder_pages
-
     def _parse(self, html):
         soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES,
                              fromEncoding='utf-8')
 
-        print 'at the beginning'
         self.meta = soup.findAll('meta')
         elt = soup.find("h1", attrs={"itemprop": "name"})
         if elt is None:
             self.real_article = False
             return
-        print 'after title'
         self.title = elt.getText()
-        print self.title
         self.byline = ''
         self.date = soup.find('div', attrs={'class': 'detayTarih'}).getText()
 

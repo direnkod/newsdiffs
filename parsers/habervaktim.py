@@ -13,8 +13,6 @@ class HaberVaktimParser(BaseParser):
     feeder_pat   = '^http://www.habervaktim.com/(haber|yazar)/\d+'
     feeder_pages = ['http://www.habervaktim.com']
 
-    # print feeder_pages
-
     def _parse(self, html):
         soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES,
                              fromEncoding='utf-8')
@@ -28,7 +26,6 @@ class HaberVaktimParser(BaseParser):
             self.real_article = False
             return
 
-        print 'at the beginning'
         self.meta = soup.findAll('meta')
         if kose_yazisi is not None:
             elt = kose_yazisi.find('div', attrs={"class": "title"})
@@ -37,9 +34,7 @@ class HaberVaktimParser(BaseParser):
         if elt is None:
             self.real_article = False
             return
-        print 'after title'
         self.title = elt.getText()
-        print self.title
         self.byline = ''
         if kose_yazisi is None:
             self.date = soup.find("div", attrs={"class": "news_detail_content"}).find('div', attrs={"class": "date"}).getText()
