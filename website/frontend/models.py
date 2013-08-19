@@ -24,6 +24,7 @@ PublicationDict = {
                     'www.habervaktim.com'       : 'HaberVaktim',
                     'www.hurriyet.com.tr'       : 'Hürriyet',
                     'www.dha.com.tr'            : 'DHA',
+                    'www.ntvmsnbc.com'		    : 'NTVMSNBC',
                    }
 
 ancient = datetime(1901, 1, 1)

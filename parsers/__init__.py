@@ -21,6 +21,7 @@ zaman.ZamanParser
 habervaktim.HaberVaktimParser
 hurriyet.HurriyetParser
 dha.DHAParser
+ntvmsnbc.NTVMSNBCParser
 """.split()
 
 parser_dict = {}
