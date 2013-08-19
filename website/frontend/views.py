@@ -116,7 +116,7 @@ def get_articles(source=None, distance=0):
     articles.sort(key = lambda x: x[-1][0][1].date, reverse=True)
     return articles
 
-@cache_page(60 * 30)  #30 minute cache
+@cache_page(60 * 60)  #60 minute cache
 def browse(request, source=''):
     if source not in SOURCES + ['']:
         raise Http404
@@ -139,7 +139,7 @@ def browse(request, source=''):
             'sources': SOURCES
             })
 
-@cache_page(60 * 30)  #30 minute cache
+@cache_page(60 * 60)  #60 minute cache
 def feed(request, source=''):
     if source not in SOURCES + ['']:
         raise Http404
