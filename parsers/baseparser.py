@@ -103,6 +103,8 @@ class BaseParser(object):
 
     meta = []  # Currently unused.
 
+    exclude_pattern = None
+
     # Used when finding articles to parse
     feeder_pat   = None # Look for links matching this regular expression
     feeder_pages = []   # on these pages
@@ -152,4 +154,10 @@ class BaseParser(object):
             all_urls = all_urls + [url for url in urls if
                                    re.search(cls.feeder_pat, url)]
         # Drop duplicate ones
-        return list(set(all_urls))
+        all_urls = list(set(all_urls))
+
+        # Filter out using exclude_pattern
+        if cls.exclude_pattern:
+            all_urls = filter(lambda url: not re.search("(%s)" % ("|".join(cls.exclude_pattern)), url))
+
+        return all_urls
