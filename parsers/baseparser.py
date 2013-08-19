@@ -158,6 +158,6 @@ class BaseParser(object):
 
         # Filter out using exclude_pattern
         if cls.exclude_pattern:
-            all_urls = filter(lambda url: not re.search("(%s)" % ("|".join(cls.exclude_pattern)), url))
+            all_urls = filter(lambda url: not re.search("(%s)" % "|".join(cls.exclude_pattern), url), all_urls)
 
         return all_urls
