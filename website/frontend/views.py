@@ -297,6 +297,10 @@ def article_history(request, urlarg=''):
 
     url = prepend_http(url)
 
+    # This is a hack to deal with unicode passed in the URL.
+    # Otherwise gives an error, since our table character set is latin1.
+    url = url.encode('ascii', 'ignore')
+
     try:
         article = Article.objects.get(url=url)
     except Article.DoesNotExist:
