@@ -14,7 +14,13 @@ class NTVMSNBCParser(BaseParser):
                              fromEncoding='utf-8')
 
         div_content = soup.find("div", {"id" : "content"})
-        self.title = div_content.find("h1").getText()
+
+        try:
+            self.title = div_content.find("h1").getText()
+        except AttributeError, ae:
+            # We're in top-story pages, skip
+            self.real_article = False
+            return
 
         self.date = div_content.find("span", {"class" : "date"}).getText().replace(".", "")
         self.date += " " + div_content.find("span", {"class" : "time"}).getText()
