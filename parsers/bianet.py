@@ -28,8 +28,7 @@ class BIANETParser(BaseParser):
         # Prepend summary
         self.body = "\n" + headline.find("p").getText() + "\n"
 
-        tags = [("b", None), ("strong", None), ("em", None),
-		("br", "\n\n"), ("a", None)]
+        tags = [("b", None), ("strong", None), ("em", None), ("br", "\n\n"), ("a", None)]
 
         for p in soup.find("div", {"class" : "item"}).findAll("p"):
             for tag, subs in tags:
