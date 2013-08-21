@@ -28,7 +28,12 @@ class NTVMSNBCParser(BaseParser):
 
         byline = div_content.find("div", {"class" : ["textMedBlack", "textMedBlackBold"]})
         if byline:
-            self.byline = byline.getText()
+            strongs = byline.findAll("strong")
+            # Fix for stupid ntvmsnbc
+            if strongs:
+                self.byline = strongs[-1].getText()
+            else:
+                self.byline = byline.getText()
 
         # Summary
         self.body = div_content.find("h2").getText() + "\n"
