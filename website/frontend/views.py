@@ -34,6 +34,7 @@ SOURCES = {
             "www.dha.com.tr"        : "DHA",
             "www.ntvmsnbc.com"      : "NTVMSNBC",
             "www.bianet.org"        : "Bianet",
+            "www.aa.com.tr"         : "AA",
           }
 
 locale.setlocale(locale.LC_TIME, "tr_TR.UTF-8")

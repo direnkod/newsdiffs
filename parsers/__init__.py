@@ -23,6 +23,7 @@ hurriyet.HurriyetParser
 dha.DHAParser
 ntvmsnbc.NTVMSNBCParser
 bianet.BIANETParser
+aa.AAParser
 """.split()
 
 parser_dict = {}
