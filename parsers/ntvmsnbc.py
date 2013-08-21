@@ -22,6 +22,7 @@ class NTVMSNBCParser(BaseParser):
             self.real_article = False
             return
 
+        self.byline = ""
         self.date = div_content.find("span", {"class" : "date"}).getText().replace(".", "")
         self.date += " " + div_content.find("span", {"class" : "time"}).getText()
 
