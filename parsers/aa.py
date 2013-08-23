@@ -18,17 +18,19 @@ class AAParser(BaseParser):
         body = soup.find("div", {"id" : "printBody"})
         header = body.find("div", {"class" : "news-kunye"})
 
+        # byline parsing is problematic, skip.
+        self.byline = ""
+
         self.title = header.find("h3").getText()
         self.date = header.find("div", {"class" : "kunye"}).find("span").getText()
 
         news_content = body.find("div", {"id" : "news-maincontent"}).findAll("p")
-        self.byline = news_content[0].getText()
 
         # Prepend summary
         self.body = body.find("div", {"class" : "news-spot"}).getText() + "\n\n"
 
         tags = [("b", None), ("strong", None), ("em", None), ("br", "\n\n"), ("a", None)]
-        for p in news_content[1:]:
+        for p in news_content:
             for tag, subs in tags:
                 for match in p.findAll(tag):
                     if subs:
