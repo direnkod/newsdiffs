@@ -10,6 +10,7 @@ class AAParser(BaseParser):
     feeder_pages = ['http://www.aa.com.tr']
 
     exclude_pattern = ["kurumsal.*/", "mod/", "aa-hizmetler/"]
+    basename_filter = True
 
     def _parse(self, html):
         soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES,
