@@ -19,6 +19,10 @@ class AAParser(BaseParser):
         body = soup.find("div", {"id" : "printBody"})
         header = body.find("div", {"class" : "news-kunye"})
 
+        if not header:
+            self.real_article = False
+            return
+
         # byline parsing is problematic, skip.
         self.byline = ""
 
