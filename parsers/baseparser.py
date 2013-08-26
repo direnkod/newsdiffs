@@ -105,6 +105,9 @@ class BaseParser(object):
 
     exclude_pattern = None
 
+    # If True, duplicate urls with the same basename will be dropped
+    basename_filter = False
+
     # Used when finding articles to parse
     feeder_pat   = None # Look for links matching this regular expression
     feeder_pages = []   # on these pages
@@ -159,5 +162,8 @@ class BaseParser(object):
         # Filter out using exclude_pattern
         if cls.exclude_pattern:
             all_urls = filter(lambda url: not re.search("(%s)" % "|".join(cls.exclude_pattern), url), all_urls)
+
+        if cls.basename_filter:
+            all_urls = dict([(url.rsplit("/", 1)[-1], url) for url in all_urls]).values()
 
         return all_urls
